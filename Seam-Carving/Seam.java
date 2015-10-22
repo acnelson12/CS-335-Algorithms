@@ -81,6 +81,21 @@ public class Seam
 	
 	private int[][] getEnergy( UWECImage im );
 	
+	/**
+	 * Calculates energy map for an image.
+	 * Attempts to maximize efficiency by not recalculating values
+	 * that will not have changed due to a the last seam removal.
+	 * Instead, it simply copies them from the last energy map.
+	 * 
+	 * @param im
+	 * 	the image to operate on.
+	 * @param lastEnergy
+	 * 	the previous energy map.
+	 * @param lastSeam
+	 * 	the last seam removed from the image.
+	 * @return
+	 * 	the new energy map.
+	 **/
 	private int[][] getEnergy( UWECImage im, int[][] lastEnergy, int[] lastSeam );
 		// only called by fast methods
 	
