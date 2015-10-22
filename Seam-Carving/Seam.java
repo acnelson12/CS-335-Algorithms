@@ -99,6 +99,18 @@ public class Seam
 	private int[][] getEnergy( UWECImage im, int[][] lastEnergy, int[] lastSeam );
 		// only called by fast methods
 	
+	/**
+	 * Calculates the total energy required to get to each pixel.
+	 * This method basically generates the trace-back table.
+	 * 
+	 * @param im
+	 * 	the image to operate on.
+	 * @param energy
+	 * 	the energy map of the image.
+	 * @return
+	 * 	a map of the cost of the minimum path that goes through
+	 * 	each pixel.
+	 **/
 	private int[][] getPathWeights( UWECImage im, int[][] energy );
 	
 	private int[][] getPathWeights( UWECImage im, int[][] energy, int[][] lastPaths, int[] lastSeam );
