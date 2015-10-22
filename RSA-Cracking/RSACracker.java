@@ -101,7 +101,6 @@ public class RSACracker extends Thread
 		long startTime = 0;
 		long endTime   = 0;
 		
-		String output = "";
 		try
 		{
 			File file = new File( "./output.txt" );
