@@ -195,6 +195,10 @@ public class UWECImage {
 		return imT;
 	}
 
+	/*
+	 * An attempt to speed up matrix multiplication through the
+	 * use of a divide-and-conquer algorithm. (abandoned)
+	 */
 	public UWECImage transposeR()
 	{
 		UWECImage imT = new UWECImage( getHeight(), getWidth() );
