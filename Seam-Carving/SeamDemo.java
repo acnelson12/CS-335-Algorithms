@@ -55,18 +55,13 @@ public class SeamDemo
 			s = new Seam( wait );
 		
 		/* Demonstrate Seam */
-		long start, end;
-
 		im.openNewDisplayWindow();
-		start = System.currentTimeMillis();
-		//for ( int i = 0; i < decWidth; i++ )
-			//s.verticalSeamShrink( im );
-		s.fastVSShrink( im, decWidth );
-		//for ( int i = 0; i < decHeight; i++ )
-			//s.horizontalSeamShrink( im );
-		s.fastHSShrink( im, decHeight );
-		end = System.currentTimeMillis();
-		System.out.println( end - start );
+		for ( int i = 0; i < decWidth; i++ )
+			s.verticalSeamShrink( im );
+		//s.fastVSShrink( im, decWidth );
+		for ( int i = 0; i < decHeight; i++ )
+			s.horizontalSeamShrink( im );
+		//s.fastHSShrink( im, decHeight );
 		
 		if ( null != output )
 			im.write( output );
