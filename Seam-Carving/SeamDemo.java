@@ -9,6 +9,7 @@ public class SeamDemo
 		int decWidth  = -1;
 		int decHeight = -1;
 		int wait      = -1;
+		boolean fast  = false;
 		String output = null;
 		
 		/* Get Parameters */
@@ -25,6 +26,9 @@ public class SeamDemo
 				case "-dim":
 					decWidth  = im.getWidth()  - Integer.parseInt( args[++i] );
 					decHeight = im.getHeight() - Integer.parseInt( args[++i] );
+					break;
+				case "-f":
+					fast = true;
 					break;
 				case "-h":
 					help();
@@ -56,12 +60,19 @@ public class SeamDemo
 		
 		/* Demonstrate Seam */
 		im.openNewDisplayWindow();
-		for ( int i = 0; i < decWidth; i++ )
-			s.verticalSeamShrink( im );
-		//s.fastVSShrink( im, decWidth );
-		for ( int i = 0; i < decHeight; i++ )
-			s.horizontalSeamShrink( im );
-		//s.fastHSShrink( im, decHeight );
+		if ( fast )
+		{
+			s.fastVSShrink( im, decWidth );
+			s.fastHSShrink( im, decHeight );
+		}
+		else
+		{
+			for ( int i = 0; i < decWidth; i++ )
+				s.verticalSeamShrink( im );
+			
+			for ( int i = 0; i < decHeight; i++ )
+				s.horizontalSeamShrink( im );
+		}
 		
 		if ( null != output )
 			im.write( output );
@@ -77,6 +88,8 @@ public class SeamDemo
 		"-dim <width> <height>\n\t\t" +
 		        "The desired new dimensions of the image (in pixels).\n\t\t" +
 		        "Defaults are 75% of the original.\n\t" +
+		"-f\n\t\t" +
+				"Shrink image as fast as possible.\n\t" +
 		"-h\n\t\t" +
 		        "This help text.\n\t" +
 		"-o <file>\n\t\t" +
