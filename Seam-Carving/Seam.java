@@ -51,7 +51,7 @@ public class Seam
 	 * @param decHeight
 	 * 	the amount to decrease the height.
 	 **/
-	public void     fastHSShrink( UWECImage im, int decHeight )
+	public void fastHSShrink( UWECImage im, int decHeight )
 	{
 		UWECImage imT = im.transpose();
 		int[][] energy      = null;
