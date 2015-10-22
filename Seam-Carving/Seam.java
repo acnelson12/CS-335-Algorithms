@@ -60,17 +60,17 @@ public class Seam
 		
 		if ( 0 < decHeight )
 		{
-			energy = getEnergy( imT );
+			energy      = getEnergy( imT );
 			pathWeights = getPathWeights( imT, energy );
-			seam = getSeam( imT, pathWeights );
+			seam        = getSeam( imT, pathWeights );
 			imT.switchImage( imT.shrinkImage( seam ) );
 		}
 		
 		for ( int i = 1; i < decHeight; i++ )
 		{
-			energy = getEnergy( imT, energy, seam );
+			energy      = getEnergy( imT, energy, seam );
 			pathWeights = getPathWeights( imT, energy, pathWeights, seam );
-			seam = getSeam( imT, pathWeights );
+			seam        = getSeam( imT, pathWeights );
 			imT.switchImage( imT.shrinkImage( seam ) );
 		}
 		im.switchImage( imT.transpose() );
