@@ -184,10 +184,14 @@ public class UWECImage {
 	
 	public UWECImage transpose()
 	{
+		/* Local Constants */
 		final int HEIGHT = getHeight();
-		final int WIDTH = getWidth();
+		final int WIDTH  = getWidth();
+		
+		/* Local Variables */
 		UWECImage imT = new UWECImage( HEIGHT, WIDTH );
 		
+		/* Transpose Image */
 		for ( int j = 0; j < HEIGHT; j++ )
 			for ( int i = 0; i < WIDTH; i++ )
 				imT.im.setRGB( j, i, im.getRGB(i,j) );
