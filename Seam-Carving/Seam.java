@@ -5,6 +5,9 @@
 public class Seam
 {
 	/* Instance Constants */
+	/**
+	 * The time to wait after drawing a seam (in milliseconds).
+	 **/
 	private final int WAIT;
 	
 	/*== Constructors ==*/
