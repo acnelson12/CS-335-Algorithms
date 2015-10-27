@@ -239,12 +239,12 @@ public class UWECImage {
         UWECImage im2 = new UWECImage( getWidth()-1, getHeight() );
         
         for ( int j = 0; j < getHeight(); j++ )
+        {
             for ( int i = 0; i < seam[j]; i++ )
                 im2.im.setRGB( i, j, im.getRGB(i,j) );
-        
-        for ( int j = 0; j < getHeight(); j++ )
             for ( int i = seam[j]+1; i < getWidth(); i++ )
                 im2.im.setRGB( i-1, j, im.getRGB(i,j) );
+        }
         return im2;
     }
     
